@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "Arial Rounded Bold";
+  src: url("fonts/Arial_Rounded_Bold.ttf");
+}
+
+body {
+  background-color: #8F7EFA;
+  color: #FFF;
+  font-family: "Arial Rounded Bold";
+  padding-left: 10%
+  padding-right: 10%
+}
+
+#logo {
+  margin-top: 5%;
+  margin-bottom: 7%;
+}
+
+#close {
+  color: #FFF;
+  position: absolute;
+  text-align: right;
+  text-decoration: none;
+  top: 15px;
+  right: 15px;
+}
+
+#timer-container {
+  font-size: 10vw;
+}
+
+#start-btn {
+  cursor: pointer;
+  display: block;
+  margin-top: 5%;
+  font-size: 3vw;
+}
