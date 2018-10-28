@@ -7,8 +7,12 @@ body {
   background-color: #8F7EFA;
   color: #FFF;
   font-family: "Arial Rounded Bold";
-  padding-left: 10%
-  padding-right: 10%
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+body.change-color{
+  animation: backgroundPulse 40s infinite alternate !important;
 }
 
 #logo {
@@ -34,4 +38,24 @@ body {
   display: block;
   margin-top: 5%;
   font-size: 3vw;
+}
+
+
+
+@keyframes backgroundPulse {
+  0% {
+    background-color: #45CEEF;
+  }
+  25% {
+    background-color: #9EE293;
+  }
+  50% {
+    background-color: #FFD4DA;
+  }
+  75% {
+    background-color: #99D2E4;
+  }
+  100% {
+    background-color: #8D5BD8;
+  }
 }
