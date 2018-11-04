@@ -14,7 +14,6 @@ function modMinute(minute){
 }
 
 function modSeconds(seconds){
-  console.log("modSeconds called: " + seconds);
   if(seconds > 10){
     return seconds - 1;
   }else if (seconds === 0){
@@ -86,7 +85,8 @@ class Timer extends React.Component {
   }
 
   render() {
-    return e("div", null, this.state.minutes + ":" + this.state.seconds,
+    return e("div", null,  e("img", { "className": "timer-icon", src: "img/time.png" }),
+              e("span", null, this.state.minutes + ":" + this.state.seconds),
               e("a",{ id: "start-btn", onClick: this.handleClick }, this.state.actionBtnName ));
   }
 }

@@ -33,6 +33,12 @@ body {
   font-size: 10vw;
 }
 
+.timer-icon {
+  width: 11%;
+  padding-bottom: 2%;
+  margin-right: 3%; 
+}
+
 #start-btn {
   cursor: pointer;
   display: block;
