@@ -53,12 +53,24 @@ class Timer extends React.Component {
 
   }
 
+  // When timer starts, the background starts to change its color
+  toggleBodyEffect() {
+    console.log(document.body.classList);
+    if(document.body.classList.contains('change-color')){
+      document.body.classList.remove("change-color");
+    }else{
+      document.body.classList.add("change-color");
+    }
+  }
+
   handleClick() {
     if(this.state.actionBtnName == 'START'){
       this.interval = setInterval(() => this.tick(), 1000);
     }else{
       clearInterval(this.interval);
     }
+
+    this.toggleBodyEffect();
 
     this.setState(state => ({
       actionBtnName: state.actionBtnName == 'START' ? 'STOP' : 'START'

@@ -11,7 +11,7 @@ body {
   padding-right: 10%;
 }
 
-body.change-color{
+.change-color{
   animation: backgroundPulse 40s infinite alternate !important;
 }
 
@@ -44,7 +44,7 @@ body.change-color{
 
 @keyframes backgroundPulse {
   0% {
-    background-color: #45CEEF;
+    background-color: #8F7EFA;
   }
   25% {
     background-color: #9EE293;
