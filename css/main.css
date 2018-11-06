@@ -36,17 +36,24 @@ body {
 .timer-icon {
   width: 11%;
   padding-bottom: 2%;
-  margin-right: 3%; 
+  margin-right: 3%;
 }
 
 #start-btn {
   cursor: pointer;
-  display: block;
   margin-top: 5%;
   font-size: 3vw;
+  display: block;
 }
 
+#start-btn span {
+  vertical-align: middle;
+}
 
+.start-icon {
+  width: 4%;
+  margin-right: 2%;
+}
 
 @keyframes backgroundPulse {
   0% {

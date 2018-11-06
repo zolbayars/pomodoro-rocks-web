@@ -32,6 +32,8 @@ class Timer extends React.Component {
       minutes: '25',
       seconds: '00',
       actionBtnName: 'START',
+      mainIconPath: 'img/time.png',
+      playIconPath: 'img/play-button.png'
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -72,7 +74,8 @@ class Timer extends React.Component {
     this.toggleBodyEffect();
 
     this.setState(state => ({
-      actionBtnName: state.actionBtnName == 'START' ? 'STOP' : 'START'
+      actionBtnName: state.actionBtnName == 'START' ? 'STOP' : 'START',
+      mainIconPath: state.actionBtnName == 'START' ? 'img/time-left.png' : 'img/time.png',
     }));
   }
 
@@ -85,9 +88,11 @@ class Timer extends React.Component {
   }
 
   render() {
-    return e("div", null,  e("img", { "className": "timer-icon", src: "img/time.png" }),
+    return e("div", null,  e("img", { "className": "timer-icon", src: this.state.mainIconPath }),
               e("span", null, this.state.minutes + ":" + this.state.seconds),
-              e("a",{ id: "start-btn", onClick: this.handleClick }, this.state.actionBtnName ));
+              e("a", { id: "start-btn", onClick: this.handleClick }, e("img", { "className": "start-icon", src: this.state.playIconPath }),
+              e("span", null, this.state.actionBtnName )),
+              );
   }
 }
 
