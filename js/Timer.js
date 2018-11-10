@@ -1,8 +1,8 @@
 'use strict';
 
 const e = React.createElement;
-const workTime = '01';
-const restTime = '01';
+const workTime = '25';
+const restTime = '05';
 
 function modMinute(minute, isWorkingTimerRunning){
 
