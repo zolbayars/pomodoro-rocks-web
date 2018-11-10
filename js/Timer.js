@@ -1,13 +1,22 @@
 'use strict';
 
 const e = React.createElement;
+const workTime = '01';
+const restTime = '01';
 
-function modMinute(minute){
-  console.log("modMinute called: " + minute);
+function modMinute(minute, isWorkingTimerRunning){
+
+  console.log("modMinute called: " + minute + " isWorkingTimerRunning: " + isWorkingTimerRunning);
   if(minute > 10){
     return minute - 1;
+   // When the current timer ends
   }else if (minute === '00'){
-    return 25
+
+    if(isWorkingTimerRunning === true){
+      return workTime;
+    }
+
+    return restTime;
   }else{
     return 0 + "" + (minute - 1);
   }
@@ -29,11 +38,16 @@ class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      minutes: '25',
+      minutes: workTime,
       seconds: '00',
+      minutesRest: restTime,
+      secondsRest: '00',
       actionBtnName: 'START',
+      isWorkingTimerRunning: true,
       mainIconPath: 'img/time.png',
-      playIconPath: 'img/play-button.png'
+      playIconPath: 'img/play-button.png',
+      workTimerClass: 'timer-active',
+      restTimerClass: 'timer-inactive'
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -41,17 +55,57 @@ class Timer extends React.Component {
 
   tick() {
 
-    if(this.state.seconds == '00' || this.state.seconds == 0){
+    console.log("work: " + this.state.minutes + ":" + this.state.seconds
+    + " rest: " + this.state.minutesRest + ":" + this.state.secondsRest);
+
+    if((this.state.minutes == '00' || this.state.minutes == 0) &&
+        (this.state.seconds === '00' || this.state.seconds === 0)){
       this.setState(state => ({
-        minutes: modMinute(state.minutes),
-        seconds: modSeconds(state.seconds)
-      }));
-    }else{
-      this.setState(state => ({
-        seconds: modSeconds(state.seconds)
+        isWorkingTimerRunning: false,
+        minutes: workTime,
+        workTimerClass: 'timer-inactive',
+        restTimerClass: 'timer-active'
       }));
     }
 
+    if((this.state.minutesRest === '00' || this.state.minutesRest == 0) &&
+        (this.state.secondsRest === '00' || this.state.secondsRest === 0)){
+      this.setState(state => ({
+        isWorkingTimerRunning: true,
+        minutesRest: restTime,
+        workTimerClass: 'timer-active',
+        restTimerClass: 'timer-inactive'
+      }));
+    }
+
+    this.moveCounter();
+
+  }
+
+  moveCounter() {
+    if(this.state.isWorkingTimerRunning === true){
+      if(this.state.seconds == '00' || this.state.seconds == 0){
+        this.setState(state => ({
+          minutes: modMinute(state.minutes, true),
+          seconds: modSeconds(state.seconds)
+        }));
+      }else{
+        this.setState(state => ({
+          seconds: modSeconds(state.seconds)
+        }));
+      }
+    }else{
+      if(this.state.secondsRest == '00' || this.state.secondsRest == 0){
+        this.setState(state => ({
+          minutesRest: modMinute(state.minutesRest, false),
+          secondsRest: modSeconds(state.secondsRest)
+        }));
+      }else{
+        this.setState(state => ({
+          secondsRest: modSeconds(state.secondsRest)
+        }));
+      }
+    }
   }
 
   // When timer starts, the background starts to change its color
@@ -88,11 +142,15 @@ class Timer extends React.Component {
   }
 
   render() {
-    return e("div", null,  e("img", { "className": "timer-icon", src: this.state.mainIconPath }),
-              e("span", null, this.state.minutes + ":" + this.state.seconds),
-              e("a", { id: "start-btn", onClick: this.handleClick }, e("img", { "className": "start-icon", src: this.state.playIconPath }),
-              e("span", null, this.state.actionBtnName )),
-              );
+    return e("div", null,
+              e("img", { "className": "timer-icon", src: this.state.mainIconPath }),
+              e("span", { "className": this.state.workTimerClass }, this.state.minutes + ":" + this.state.seconds),
+              e("span", { "className": this.state.restTimerClass }, this.state.minutesRest + ":" + this.state.secondsRest),
+              e("a", { id: "start-btn", onClick: this.handleClick },
+                e("img", { "className": "start-icon", src: this.state.playIconPath }),
+                e("span", null, this.state.actionBtnName )
+              ),
+            );
   }
 }
 

@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #8F7EFA;
+  background-color: #ff507f;
   color: #FFF;
   font-family: "Arial Rounded Bold";
   padding-left: 10%;
@@ -33,10 +33,22 @@ body {
   font-size: 10vw;
 }
 
+#timer-container span {
+  margin-right: 5%;
+}
+
 .timer-icon {
   width: 11%;
   padding-bottom: 2%;
   margin-right: 3%;
+}
+
+.timer-inactive {
+  opacity: 0.5;
+}
+
+.timer-active {
+  opacity: 1;
 }
 
 #start-btn {
@@ -57,18 +69,18 @@ body {
 
 @keyframes backgroundPulse {
   0% {
-    background-color: #8F7EFA;
+    background-color: #ff507f;
   }
   25% {
-    background-color: #9EE293;
+    background-color: #934EF7;
   }
   50% {
-    background-color: #FFD4DA;
+    background-color: #FE5582;
   }
   75% {
-    background-color: #99D2E4;
+    background-color: #EFAD31;
   }
   100% {
-    background-color: #8D5BD8;
+    background-color: #A6EF31;
   }
 }
