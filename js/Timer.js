@@ -144,7 +144,7 @@ class Timer extends React.Component {
   render() {
     return e("div", null,
               e("img", { "className": "timer-icon", src: this.state.mainIconPath }),
-              e("span", { "className": this.state.workTimerClass }, this.state.minutes + ":" + this.state.seconds),
+              e("span", { "id": "work-timer", "className": this.state.workTimerClass }, this.state.minutes + ":" + this.state.seconds),
               e("span", { "className": this.state.restTimerClass }, this.state.minutesRest + ":" + this.state.secondsRest),
               e("a", { id: "start-btn", onClick: this.handleClick },
                 e("img", { "className": "start-icon", src: this.state.playIconPath }),

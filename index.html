@@ -25,7 +25,20 @@
         <div class="row h-90 justify-content-center align-items-center">
           <div class="col-12">
             <h4>How much do you <br>want to spend?</h4>
-            <div id="timer-container"></div>
+            <div id="timer-container">
+
+              <!-- React elements are loading after the DOM. So here's a placeholder -->
+              <div>
+                <img class="timer-icon" src="img/time.png">
+                <span class="timer-active">25:00</span>
+                <span class="timer-inactive">05:00</span>
+                <a id="start-btn">
+                  <img class="start-icon" src="img/play-button.png">
+                  <span>START</span>
+                </a>
+              </div>
+
+            </div>
           </div>
         </div>
         <div class="row h-90 justify-content-center align-items-center start-btn-container">
