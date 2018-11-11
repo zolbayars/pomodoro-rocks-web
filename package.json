@@ -1,0 +1,29 @@
+{
+  "name": "pomodoro-rocks-web",
+  "version": "1.0.0",
+  "description": "A beautiful Pomodoro Timer",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zolbayars/pomodoro-rocks-web.git"
+  },
+  "keywords": [
+    "pomodoro",
+    "timer",
+    "pomodoro",
+    "rocks",
+    "productivity"
+  ],
+  "author": "Zolbayar",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/zolbayars/pomodoro-rocks-web/issues"
+  },
+  "homepage": "https://github.com/zolbayars/pomodoro-rocks-web#readme",
+  "dependencies": {
+    "push.js": "^1.0.9"
+  }
+}

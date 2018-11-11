@@ -6,6 +6,8 @@ const restTime = '05';
 
 function modMinute(minute, isWorkingTimerRunning){
 
+  Push.create('A minute has passed: ' + minute);
+
   console.log("modMinute called: " + minute + " isWorkingTimerRunning: " + isWorkingTimerRunning);
   if(minute > 10){
     return minute - 1;
