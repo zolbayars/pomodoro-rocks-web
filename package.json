@@ -23,7 +23,5 @@
     "url": "https://github.com/zolbayars/pomodoro-rocks-web/issues"
   },
   "homepage": "https://github.com/zolbayars/pomodoro-rocks-web#readme",
-  "dependencies": {
-    "push.js": "^1.0.9"
-  }
+  "dependencies": {}
 }
