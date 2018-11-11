@@ -4,9 +4,10 @@ const e = React.createElement;
 const workTime = '25';
 const restTime = '05';
 
+let pomodoroCount = 0;
+
 function modMinute(minute, isWorkingTimerRunning){
 
-  Push.create('A minute has passed: ' + minute);
 
   console.log("modMinute called: " + minute + " isWorkingTimerRunning: " + isWorkingTimerRunning);
   if(minute > 10){
@@ -14,8 +15,29 @@ function modMinute(minute, isWorkingTimerRunning){
    // When the current timer ends
   }else if (minute === '00'){
 
+    pomodoroCount++;
+
     if(isWorkingTimerRunning === true){
+      Push.create("A Pomodoro is starting!", {
+          body: "",
+          // icon: '/icon.png',
+          timeout: 60000,
+          onClick: function () {
+              window.focus();
+              this.close();
+          }
+      });
       return workTime;
+    }else{
+      Push.create("A Break is starting!", {
+          body: "",
+          // icon: '/icon.png',
+          timeout: 60000,
+          onClick: function () {
+              window.focus();
+              this.close();
+          }
+      });
     }
 
     return restTime;
