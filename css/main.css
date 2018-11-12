@@ -30,7 +30,7 @@ body {
 }
 
 #timer-container {
-  font-size: 10vw;
+  font-size: 9vw;
 }
 
 #work-timer {
@@ -38,7 +38,7 @@ body {
 }
 
 .timer-icon {
-  width: 11%;
+  width: 8%;
   padding-bottom: 2%;
   margin-right: 3%;
 }
