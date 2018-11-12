@@ -6,6 +6,34 @@ const restTime = '05';
 
 let pomodoroCount = 0;
 
+function getOrdinal(number){
+  switch (number.charAt(number.length - 1)) {
+    case '1':
+      return 'st';
+      break;
+    case '2':
+      return 'nd';
+      break;
+    case '3':
+      return 'rd';
+      break;
+    default:
+      return 'th';
+  }
+}
+
+function showNotification(title, msg, timeout = 60000){
+  Push.create(title, {
+      body: msg,
+      // icon: '/icon.png',
+      timeout: 60000,
+      onClick: function () {
+          window.focus();
+          this.close();
+      }
+  });
+}
+
 function modMinute(minute, isWorkingTimerRunning){
 
 
@@ -18,28 +46,13 @@ function modMinute(minute, isWorkingTimerRunning){
     pomodoroCount++;
 
     if(isWorkingTimerRunning === true){
-      Push.create("A Pomodoro is starting!", {
-          body: "",
-          // icon: '/icon.png',
-          timeout: 60000,
-          onClick: function () {
-              window.focus();
-              this.close();
-          }
-      });
+      showNotification("A Pomodoro is starting!", "It's the " + pomodoroCount +
+        "" + getOrdinal(pomodoroCount) + " pomodoro in the current session.");
       return workTime;
-    }else{
-      Push.create("A Break is starting!", {
-          body: "",
-          // icon: '/icon.png',
-          timeout: 60000,
-          onClick: function () {
-              window.focus();
-              this.close();
-          }
-      });
     }
 
+    showNotification("A Break is starting!", "You've done " + pomodoroCount +
+       " pomodoros in the current session.");
     return restTime;
   }else{
     return 0 + "" + (minute - 1);
