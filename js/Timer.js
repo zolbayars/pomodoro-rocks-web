@@ -80,8 +80,8 @@ class Timer extends React.Component {
 
   tick() {
 
-    console.log("work: " + this.state.minutes + ":" + this.state.seconds
-    + " rest: " + this.state.minutesRest + ":" + this.state.secondsRest);
+    // console.log("work: " + this.state.minutes + ":" + this.state.seconds
+    // + " rest: " + this.state.minutesRest + ":" + this.state.secondsRest);
 
     if((this.state.minutes == '00' || this.state.minutes == 0) &&
         (this.state.seconds === '00' || this.state.seconds === 0)){
