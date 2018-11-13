@@ -42,19 +42,6 @@ function modMinute(minute, isWorkingTimerRunning){
   if(minute > 10){
     return minute - 1;
    // When the current timer ends
-  }else if (minute === '00'){
-    console.log("00 equals now");
-    pomodoroCount++;
-
-    if(isWorkingTimerRunning === true){
-      showNotification("A Pomodoro is starting!", "It's the " + pomodoroCount +
-        "" + getOrdinal(pomodoroCount) + " pomodoro in the current session.");
-      return workTime;
-    }
-
-    showNotification("A Break is starting!", "You've done " + pomodoroCount +
-       " pomodoros in the current session.");
-    return restTime;
   }else{
     return 0 + "" + (minute - 1);
   }
@@ -98,6 +85,12 @@ class Timer extends React.Component {
 
     if((this.state.minutes == '00' || this.state.minutes == 0) &&
         (this.state.seconds === '00' || this.state.seconds === 0)){
+
+      pomodoroCount++;
+
+      showNotification("A Break is starting!", "You've done " + pomodoroCount +
+         " pomodoro[s] in the current session.");
+
       this.setState(state => ({
         isWorkingTimerRunning: false,
         minutes: workTime,
@@ -108,6 +101,10 @@ class Timer extends React.Component {
 
     if((this.state.minutesRest === '00' || this.state.minutesRest == 0) &&
         (this.state.secondsRest === '00' || this.state.secondsRest === 0)){
+
+      showNotification("A Pomodoro is starting!", "It's the " + pomodoroCount +
+        "" + getOrdinal(pomodoroCount) + " pomodoro in the current session.");
+
       this.setState(state => ({
         isWorkingTimerRunning: true,
         minutesRest: restTime,
