@@ -1,8 +1,8 @@
 'use strict';
 
 const e = React.createElement;
-const workTime = '25';
-const restTime = '05';
+const workTime = '01';
+const restTime = '01';
 
 let pomodoroCount = 0;
 
