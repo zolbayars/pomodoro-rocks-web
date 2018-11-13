@@ -23,10 +23,11 @@ function getOrdinal(number){
 }
 
 function showNotification(title, msg, timeout = 60000){
+  console.log("showNotification called");
   Push.create(title, {
       body: msg,
       // icon: '/icon.png',
-      timeout: 60000,
+      // timeout: timeout,
       onClick: function () {
           window.focus();
           this.close();
@@ -42,7 +43,7 @@ function modMinute(minute, isWorkingTimerRunning){
     return minute - 1;
    // When the current timer ends
   }else if (minute === '00'){
-
+    console.log("00 equals now");
     pomodoroCount++;
 
     if(isWorkingTimerRunning === true){
