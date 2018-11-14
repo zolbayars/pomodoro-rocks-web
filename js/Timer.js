@@ -7,7 +7,8 @@ const restTime = '01';
 let pomodoroCount = 0;
 
 function getOrdinal(number){
-  switch (number.charAt(number.length - 1)) {
+  console.log("getOrdinal called with: " + number);
+  switch (number.toString().charAt(number.length - 1)) {
     case '1':
       return 'st';
       break;
